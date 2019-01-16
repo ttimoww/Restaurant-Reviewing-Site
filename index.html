@@ -10,7 +10,7 @@
   </head>
   <body>
     <section class="main">
-      <div class="map"></div>
+      <div class="map" id="map"></div>
       <div class="restaurants">
         <div class="restaurants-container">
           <div class="filter">
@@ -20,8 +20,7 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-caret-right star-increase pointer"></i>
           </div>
-
-          <div class="restaurant">
+          <!-- <div class="restaurant">
             <div class="info">
               <div class="info-container">
                 <h1>De vier broers</h1>
@@ -34,12 +33,11 @@
             <div class="image">
               <div class="image-container"></div>
             </div>
-          </div>
-
+          </div> -->
         </div>
       </div>
     </section>
-    <section class="more-info" style="display: nne">
+    <section class="more-info" style="display: none">
       <div class="more-info-container">
         <div class="info">
           <p id='close-more-info'>close</p>
@@ -105,8 +103,10 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./assets/js/eventlisteners.js">
-
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm9kjnGPeQQepnDwcyhiiuGNUS_Xn_hfo&callback=initMap&libraries=geometry"></script>
+    <script src="./assets/js/Restaurant.js" type="text/javascript"></script>
+    <script src="./assets/js/Review.js" type="text/javascript"></script>
+    <script src="./assets/js/eventlisteners.js" type="text/javascript"></script>
+    <script src="./assets/js/initPage.js" type="text/javascript"></script>
   </body>
 </html>
