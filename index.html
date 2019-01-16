@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant review website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <section class="main">
+      <div class="map"></div>
+      <div class="restaurants">
+        <div class="restaurants-container">
+          <div class="filter">
+            <p>Minimal rating </p>
+            <i class="fa fa-caret-left star-decrease pointer"></i>
+            <label class="min-rating">1</label>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-caret-right star-increase pointer"></i>
+          </div>
+
+          <div class="restaurant">
+            <div class="info">
+              <div class="info-container">
+                <h1>De vier broers</h1>
+                <div class="outer-stars">
+                  <div class="inner-stars"></div>
+                </div>
+                <p>More info</p>
+              </div>
+            </div>
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="more-info" style="display: nne">
+      <div class="more-info-container">
+        <div class="info">
+          <p id='close-more-info'>close</p>
+          <h1>De vier broers</h1>
+          <div class="outer-stars">
+            <div class="inner-stars"></div>
+          </div>
+          <p><i class="fa fa-map-pin fa-fw"></i>Langestraat 334 Amersfoort 8734HJ</p>
+          <p><i class="fa fa-phone fa-fw"></i>+23 789 3478 29</p>
+          <a href="#"><i class="fa fa-link fa-fw"></i>http://website.com</a>
+        </div>
+        <div class="reviews">
+          <form>
+            <h1>Write a review</h1>
+            <input type="text" id="new-review-name" placeholder="Name">
+            <textarea name="name" rows="5" cols="80" placeholder="Review" id="new-review-review"></textarea>
+            <div class="form-row">
+              <div class="rating">
+                <label for="review-rating"><i class="fa fa-star"></i></label>
+                <select class="" name="" id="new-review-rating">
+                  <option value="20">1</option>
+                  <option value="40">2</option>
+                  <option value="60">3</option>
+                  <option value="80">4</option>
+                  <option value="10">5</option>
+                </select>
+              </div>
+              <input type="button" name="" value="Submit" id="new-review-submit">
+            </div>
+          </form>
+          <div class="reviews-container">
+            <h1>Reviews</h1>
+
+            <div class="review">
+              <div class="author">
+                <div class="profile-pic"></div>
+                <h2>Thomas Baker</h2>
+              </div>
+              <div class="outer-stars">
+                <div class="inner-stars"></div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="add-restaurant" style="display: none">
+      <div class="add-restaurant-container">
+        <div class="header">
+          <p id='close-add-restaurant'>close</p>
+          <h1>Add a new restaurant</h1>
+        </div>
+        <form>
+          <input type="text" id="add-restaurant-name" placeholder="Name">
+          <input type="text" id="add-restaurant-address" placeholder="Address">
+          <input type="text" id="add-restaurant-phonenumber" placeholder="Phonenumber">
+          <input type="text" id="add-restaurant-website" placeholder="Website">
+          <input type="button"value="Submit" id="add-restaurant-submit">
+        </form>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./assets/js/eventlisteners.js">
+
+    </script>
+  </body>
+</html>
