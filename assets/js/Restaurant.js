@@ -57,7 +57,9 @@ class Restaurant{
   * Places an marker on the map based on restaurant's location and add it to the markers array
   */
   placeMarker() {
+    const that = this;
     const location = this.coords;
+    // Create the actual marker
     this.marker = new google.maps.Marker({
       id: this.id,
       position: location,
@@ -67,6 +69,26 @@ class Restaurant{
         google.maps.Animation.DROP;
       }
     });
+
+    /**
+    * TRIGGER: click on marker
+    *   1. Scroll to restaurant view, then
+    *   2. Fade in yellow background to restaurant, then 
+    *   3. Fade out yellow background to restaurant
+    */
+    this.marker.addListener('click', function(){
+      // Get offset from restaurant view relative to direct parent
+      var offsetTop = $(`.restaurant[restaurantid='${that.id}']`).position().top;
+      $('.restaurants').animate({scrollTop: offsetTop}, 'slow', function(){
+        $(`.restaurant[restaurantid='${that.id}']`).animate({
+          backgroundColor: 'rgba(249, 207, 11, .4)'
+        }, 700, function() {
+          $(`.restaurant[restaurantid='${that.id}']`).animate({
+            backgroundColor: 'transparent'
+          },700)
+        });
+      });
+    })
     markers.push(this.marker);
     this.hasMarker = true;
   }
@@ -106,6 +128,9 @@ class Restaurant{
     this.hasMarker = false;
   }
 
+  /**
+  * Make restaurant marker bounce 2 times
+  */
   showOnMap(){
     const that = this;
     if (this.marker.getAnimation() !== null) {

@@ -121,6 +121,7 @@ p, a{
     border-top: 10px solid color(blue);
     overflow-y: scroll;
 
+
     @include scrollbar;
 
     @include tablet{
