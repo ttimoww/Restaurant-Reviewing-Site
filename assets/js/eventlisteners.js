@@ -35,7 +35,6 @@ $('.star-increase').click(function(){
       if (restaurants[i].rating < minRating) {
         if(restaurants[i].hasView){restaurants[i].deleteFromPage();};
         if(restaurants[i].hasMarker){restaurants[i].deleteMarker();};
-
       }
     }
   }

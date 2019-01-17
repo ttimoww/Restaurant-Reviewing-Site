@@ -72,7 +72,12 @@ class Restaurant{
       }
       return null;
     }
-    getMarkerObject().setMap(null);
+
+    try {
+      getMarkerObject().setMap(null);
+    } catch (e) {
+      console.log(`Marker not deleted: restaurant had no marker`);
+    }
 
     var markersNew = [];
     for (var i = 0; i < markers.length; i++) {

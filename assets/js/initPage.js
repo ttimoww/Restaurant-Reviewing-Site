@@ -48,14 +48,16 @@ function getMapRadius(){
 }
 
 /**
-* Delete al the current restaurants from the initPage
-* (including markers)
+* 1. Loop over curent restaurants
+*   If they have marker or view, then delete
 */
 function clearRestaurants(){
+
   for (var i = 0; i < restaurants.length; i++) {
     if(restaurants[i].hasView){restaurants[i].deleteFromPage();};
     if(restaurants[i].hasMarker){restaurants[i].deleteMarker();};
   }
+
   restaurants = [];
   markers = [];
 }
@@ -64,17 +66,19 @@ function clearRestaurants(){
 * Call google places API to get nearby restaurants
 */
 function getRestaurants(){
+  $('#loading-restaurants').css('display', 'block');
   clearRestaurants();
   const zoom = map.getZoom();
   const lat = map.getCenter().lat();
   const lng = map.getCenter().lng();
-  const radius = getMapRadius();
+  const radius = getMapRadius() * 0.90;
 
   const minRating = $('.min-rating').html();
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const req = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=restaurant&key=AIzaSyCm9kjnGPeQQepnDwcyhiiuGNUS_Xn_hfo`;
 
   $.get(proxyurl + req, function(data){
+    $('#loading-restaurants').css('display', 'none');
     for (var i = 0; i < data.results.length; i++) {
       const id = data.results[i].place_id;
       const name = data.results[i].name;
