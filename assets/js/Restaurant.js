@@ -73,7 +73,7 @@ class Restaurant{
     /**
     * TRIGGER: click on marker
     *   1. Scroll to restaurant view, then
-    *   2. Fade in yellow background to restaurant, then 
+    *   2. Fade in yellow background to restaurant, then
     *   3. Fade out yellow background to restaurant
     */
     this.marker.addListener('click', function(){

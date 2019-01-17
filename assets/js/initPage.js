@@ -2,6 +2,7 @@ const center = {lat:52.156113 , lng: 5.387827};
 var restaurants = [];
 var markers = []; //All the markers currently on the page
 var map;
+var lastRestaurantID = 0;
 
 //Init Google map
 function initMap() {
@@ -48,8 +49,8 @@ function getMapRadius(){
 }
 
 /**
-* 1. Loop over curent restaurants
-*   If they have marker or view, then delete
+* Loop over curent restaurants
+* If they have marker or view, then delete
 */
 function clearRestaurants(){
 
@@ -64,6 +65,7 @@ function clearRestaurants(){
 
 /**
 * Call google places API to get nearby restaurants
+* Create Restaurant object for each result
 */
 function getRestaurants(){
   $('#loading-restaurants').css('display', 'block');
@@ -100,4 +102,30 @@ function getRestaurants(){
       restaurants.push(r1);
     }
   });
+}
+
+/**
+*
+*/
+function newRestaurant(coords){
+  $('.add-restaurant').fadeIn();
+  $('#add-restaurant-submit').click(function(){
+    const name = $('#add-restaurant-name').val();
+    const address = $('#add-restaurant-address').val();
+    const phonenumber = $('#add-restaurant-phonenumber').val();
+    const website = $('#add-restaurant-website').val();
+
+    if (!name || !address || !phonenumber || !website) {
+      $('#add-restaurant-error').css('display', 'block');
+    } else{
+      const r1 = new Restaurant(lastRestaurantID, name, 0, coords);
+      r1.address = address;
+      r1.phonenumber = phonenumber;
+      r1.website = website;
+      r1.writeToPage();
+      r1.placeMarker();
+      restaurants.unshift(r1);
+      $('.add-restaurant').fadeOut();
+    }
+  })
 }
