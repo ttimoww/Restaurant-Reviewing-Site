@@ -46,6 +46,8 @@ $('.star-increase').click(function(){
 */
 $('#close-more-info').click(function(){
   $('.more-info').fadeOut();
+  $('.more-info-container').fadeOut();
+
 })
 
 /**

@@ -18,6 +18,11 @@ p, a {
   font-family: "Open Sans", sans-serif;
 }
 
+.error {
+  color: red;
+  font-size: 0.7em;
+}
+
 .main {
   height: 100%;
   width: 100%;
@@ -47,14 +52,17 @@ p, a {
 }
 .main .restaurants::-webkit-scrollbar-track {
   background-color: #F5F5F5;
+  transform: translateX(10px);
 }
 .main .restaurants::-webkit-scrollbar {
   width: 10px;
   background-color: #F5F5F5;
   border: 5px solid black;
+  transform: translateX(10px);
 }
 .main .restaurants::-webkit-scrollbar-thumb {
   background-color: #f8ce0b;
+  transform: translateX(10px);
 }
 @media (min-width: 650px) {
   .main .restaurants {
@@ -222,8 +230,19 @@ p, a {
   box-sizing: border-box;
   overflow-y: scroll;
 }
-.more-info .more-info-container:-webkit-scrollbar {
-  display: none;
+.more-info .more-info-container::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+  transform: translateX(10px);
+}
+.more-info .more-info-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+  border: 5px solid black;
+  transform: translateX(10px);
+}
+.more-info .more-info-container::-webkit-scrollbar-thumb {
+  background-color: #f8ce0b;
+  transform: translateX(10px);
 }
 @media (min-width: 1000px) {
   .more-info .more-info-container {
@@ -353,6 +372,7 @@ p, a {
   font-family: "Open Sans", sans-serif;
   font-size: 0.8em;
   font-weight: bold;
+  cursor: pointer;
 }
 .more-info .more-info-container .reviews form .form-row .rating {
   display: flex;
@@ -399,10 +419,12 @@ p, a {
   border-radius: 50%;
   background-color: #f0f0f0;
   margin-right: 10px;
+  background-position: center;
+  background-size: cover;
 }
 .more-info .more-info-container .reviews .reviews-container .review .author h2 {
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .more-info .more-info-container .reviews .reviews-container .review .outer-stars {
   display: inline-block;
@@ -429,7 +451,7 @@ p, a {
   color: #f8ce0b;
 }
 .more-info .more-info-container .reviews .reviews-container .review p {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .add-restaurant {

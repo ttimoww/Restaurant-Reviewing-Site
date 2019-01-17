@@ -39,20 +39,21 @@
       </div>
     </section>
     <section class="more-info" style="display: none">
-      <div class="more-info-container">
+      <div class="more-info-container" style="display: none">
         <div class="info">
           <p id='close-more-info'>close</p>
-          <h1>De vier broers</h1>
+          <h1 id="more-info-name"></h1>
           <div class="outer-stars">
-            <div class="inner-stars"></div>
+            <div class="inner-stars" id="more-info-rating"></div>
           </div>
-          <p><i class="fa fa-map-pin fa-fw"></i>Langestraat 334 Amersfoort 8734HJ</p>
-          <p><i class="fa fa-phone fa-fw"></i>+23 789 3478 29</p>
-          <a href="#"><i class="fa fa-link fa-fw"></i>http://website.com</a>
+          <p><i class="fa fa-map-pin fa-fw"></i><span id="more-info-address"></span></p>
+          <p><i class="fa fa-phone fa-fw"></i><span id="more-info-phonenumber"></span></p>
+          <a href="#" id="more-info-website-anchor"><i class="fa fa-link fa-fw"></i>website</a>
         </div>
         <div class="reviews">
           <form>
             <h1>Write a review</h1>
+            <p class="error" style="display: none">Please fill in all input fields</p>
             <input type="text" id="new-review-name" placeholder="Name">
             <textarea name="name" rows="5" cols="80" placeholder="Review" id="new-review-review"></textarea>
             <div class="form-row">
@@ -66,13 +67,13 @@
                   <option value="10">5</option>
                 </select>
               </div>
-              <input type="button" name="" value="Submit" id="new-review-submit">
+              <input type="button"value="Submit" id="new-review-submit">
             </div>
           </form>
           <div class="reviews-container">
             <h1>Reviews</h1>
 
-            <div class="review">
+            <!-- <div class="review">
               <div class="author">
                 <div class="profile-pic"></div>
                 <h2>Thomas Baker</h2>
@@ -81,7 +82,7 @@
                 <div class="inner-stars"></div>
               </div>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+            </div> -->
 
           </div>
         </div>

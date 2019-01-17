@@ -59,7 +59,7 @@ function clearRestaurants(){
   }
 
   restaurants = [];
-  markers = [];
+  restaurants = [];
 }
 
 /**
@@ -68,7 +68,7 @@ function clearRestaurants(){
 function getRestaurants(){
   $('#loading-restaurants').css('display', 'block');
   clearRestaurants();
-  const zoom = map.getZoom();
+
   const lat = map.getCenter().lat();
   const lng = map.getCenter().lng();
   const radius = getMapRadius() * 0.90;
@@ -97,6 +97,7 @@ function getRestaurants(){
         r1.writeToPage();
         r1.placeMarker();
       }
-      restaurants.push(r1);    }
+      restaurants.push(r1);
+    }
   });
 }
