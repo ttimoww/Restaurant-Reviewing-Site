@@ -1,9 +1,6 @@
 // Fonts
-@font-face {
-  src: url(./../fonts/MYRIADPRO-REGULAR.woff);
-  font-family: MyriadPro;
-}
-
+@font-face {src: url(./../fonts/MYRIADPRO-REGULAR.woff);font-family: MyriadPro;}
+@import url('https://fonts.googleapis.com/css?family=Montserrat'); //font-family: 'Montserrat', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
 // Variables
@@ -88,7 +85,7 @@ h1, h2{
   font-family: MyriadPro;
 }
 p, a{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .error{
   color: red;
@@ -99,11 +96,16 @@ p, a{
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  border: 15px solid color(blue);
+  border: 5px solid color(blue);
   display: flex;
   flex-direction: column;
 
+  @include tablet{
+    border: 10px solid color(blue);
+  }
+
   @include desktop{
+    border: 15px solid color(blue);
     flex-direction: row;
   }
 
@@ -274,10 +276,11 @@ p, a{
     width: 100%;
     background-color: white;
     position: relative;
-    border: 10px solid color(blue);
+    //border: 10px solid color(blue);
     box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
     @include scrollbar;
 
@@ -287,10 +290,15 @@ p, a{
     }
 
     .info{
-      padding: 10px 10px 15px 10px;
-      overflow: auto;
+      padding: 20px;
       background-color: color(blue);
       color: #fff;
+
+      -webkit-box-shadow: 0px 1px 5px 0px rgba(145,145,145,1);
+      -moz-box-shadow: 0px 1px 5px 0px rgba(145,145,145,1);
+      box-shadow: 0px 1px 5px 0px rgba(145,145,145,1);
+
+
 
       @include desktop{
         padding: 20px 20px 25px 20px;
@@ -318,6 +326,9 @@ p, a{
         font-size: .7em;
         letter-spacing: 2px;
         font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
       }
 
       a{
@@ -332,7 +343,7 @@ p, a{
 
       #close-more-info{
         text-transform: uppercase;
-        margin: 0px 0px 8px 0px;
+        margin: 0px 0px 18px 0px;
         cursor: pointer;
         background-color: #e74c3c;
         border-radius: 4px;
@@ -344,13 +355,16 @@ p, a{
     }
 
     .reviews{
-      padding: 10px;
+      padding: 20px;
       box-sizing: border-box;
+      overflow-y: scroll;
+
+      @include scrollbar;
 
       @include desktop{
         display: flex;
         flex-direction: row-reverse;
-        padding: 20px;
+        padding: 30px;
       }
 
       form{
@@ -395,6 +409,8 @@ p, a{
             font-size: .8em;
             font-weight: bold;
             cursor: pointer;
+            -webkit-appearance: none;
+            border-radius: 0;
           }
 
           .rating{
@@ -476,13 +492,18 @@ p, a{
   align-items: center;
 
   .add-restaurant-container{
-    border: 10px solid color(blue);
     background-color: #FFF;
     overflow: auto;
+    width: 90%;
+
+    @include desktop{
+      width: 500px;
+    }
 
     .header{
       background-color: color(blue);
       overflow: auto;
+      padding: 10px;
 
       #close-add-restaurant{
         text-transform: uppercase;
@@ -492,6 +513,7 @@ p, a{
         border-radius: 4px;
         padding: 3px;
         width: 50px;
+        margin: 4px 0px;
         text-align: center;
         font-size: .7em;
         letter-spacing: 2px;
@@ -508,7 +530,7 @@ p, a{
     }
 
     form{
-      padding: 5px;
+      padding: 10px;
 
       input{
         width: 100%;
@@ -520,10 +542,14 @@ p, a{
         font-size: .8em;
         margin-bottom: 10px;
         padding: 5px;
+
       }
 
       #add-restaurant-submit{
         font-weight: bold;
+        cursor: pointer;
+        -webkit-appearance: none;
+        border-radius: 0;
       }
     }
   }

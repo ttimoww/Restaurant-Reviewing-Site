@@ -79,6 +79,10 @@ class Restaurant{
     this.marker.addListener('click', function(){
       // Get offset from restaurant view relative to direct parent
       var offsetTop = $(`.restaurant[restaurantid='${that.id}']`).position().top;
+      var containerHeight = $('.restaurants-container').height();
+      var restaurantHeight = $(`.restaurant[restaurantid='${that.id}']`).height();
+      offsetTop = offsetTop - (containerHeight / 2) + (restaurantHeight / 2); // Now the restaurant will appear perfectly in the middle
+
       $('.restaurants').animate({scrollTop: offsetTop}, 'slow', function(){
         $(`.restaurant[restaurantid='${that.id}']`).animate({
           backgroundColor: 'rgba(249, 207, 11, .4)'
@@ -99,21 +103,6 @@ class Restaurant{
   */
   deleteMarker(){
     const that = this;
-    // function getMarkerObject(){
-    //   for (var i = 0; i < markers.length; i++) {
-    //     if(markers[i].id === that.id){
-    //       return markers[i];
-    //     }
-    //   }
-    //   return null;
-    // }
-    //
-    // try {
-    //   getMarkerObject().setMap(null);
-    // } catch (e) {
-    //   console.log(e + 'Can not delete marker');
-    // }
-
     var markersNew = [];
     for (var i = 0; i < markers.length; i++) {
       if(markers[i].id !== that.id){

@@ -1,6 +1,6 @@
-const center = {lat:52.156113 , lng: 5.387827};
+const center = {lat:48.856613 , lng: 2.352222};
 var restaurants = [];
-var markers = []; //All the markers currently on the page
+var markers = [];
 var map;
 var lastRestaurantID = 0;
 
@@ -9,8 +9,31 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
     zoom: 15,
-    disableDoubleClickZoom: true
+    disableDoubleClickZoom: true,
+    disableDefaultUI: true
   });
+
+  infoWindow = new google.maps.InfoWindow;
+
+  // Try HTML5 geolocation
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Your location.');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
 
   /**
   * Event listeners on the google map
@@ -32,6 +55,15 @@ function initMap() {
   map.addListener('dblclick', function(e){
     newRestaurant(e.latLng);
   })
+}
+
+/**
+* Set (error)window on users location
+*/
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
 }
 
 /**
@@ -109,7 +141,7 @@ function getRestaurants(){
 */
 function newRestaurant(coords){
   $('.add-restaurant').fadeIn();
-  $('#add-restaurant-submit').click(function(){
+  $('#add-restaurant-submit').unbind('click').click(function(){
     const name = $('#add-restaurant-name').val();
     const address = $('#add-restaurant-address').val();
     const phonenumber = $('#add-restaurant-phonenumber').val();
