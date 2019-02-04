@@ -24,7 +24,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Your location.');
+      infoWindow.setContent('Your location');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
