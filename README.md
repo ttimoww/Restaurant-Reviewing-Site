@@ -11,7 +11,7 @@
 * Use the Google search API to find restaurants in a particular display area.
 
 ### See the applicatiion here
-https://debs-obrien.github.io/restaurant-reviews-OpenClassRooms-project-7
+http://timowernars.com/mywork/rrs/
 
 #### By Timo Wernars
 January 2019
