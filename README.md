@@ -11,7 +11,7 @@
 * Use the Google search API to find restaurants in a particular display area.
 
 ### See the applicatiion here
-http://timowernars.com/mywork/rrs/
+http://restaurantreviews.timowernars.com
 
 #### By Timo Wernars
 January 2019
